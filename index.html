@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="IE-Edge">
+	<title>Sums</title>
+	<script type="text/javascript" src="./assets/js/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<body>
+	<h1>Sums</h1>
+	<table>
+	  <tr>
+	    <th id="sum1"></th>
+	    <th id="sum2"></th>
+	  </tr>
+	  <tr>
+	    <td><input id="input1" type="number"></td>
+	    <td><input id="input2" type="number"></td>
+	    <th id="sum3"></th>
+	  </tr>
+	  <tr>
+	    <td><input id="input3" type="number"></td>
+	    <td><input id="input4" type="number"></td>
+	    <th id="sum4"></th>
+	  </tr>
+	</table>
+	<button id='check'>Submit</button>
+
+
+	<script type="text/javascript">
+		$(document).ready(() => {
+
+			let addends = [1,2,3,4];
+			let randNums = shuffle(addends);
+
+			$('#sum1').html(randNums[0] + randNums[2]);
+			$('#sum2').html(randNums[1]+ randNums[3]);
+			$('#sum3').html(randNums[0] + randNums[1]);
+			$('#sum4').html(randNums[2] + randNums[3]);
+
+			
+			$('#check').click(()=>{
+				let ans1 = Number($('#input1').val());
+				let ans2 = Number($('#input2').val());
+				let ans3 = Number($('#input3').val());
+				let ans4 = Number($('#input4').val());
+
+				if( ans1 + ans3 == Number($('#sum1').html()) &&
+					ans2 + ans4 == Number($('#sum2').html()) &&
+					ans1 + ans2 == Number($('#sum3').html()) &&
+					ans3 + ans4 == Number($('#sum4').html())){
+					alert('Your awesome')
+				} else {
+					alert('you suck');
+				}				
+			});
+		});
+
+		const shuffle = (a) => {
+		    for(let b, c, d = a.length; d; b = parseInt(Math.random() * d), c = a[--d], a[d] = a[b], a[b] = c);
+		    return a;
+		};
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+body {
+    width: 50%;
+    margin: auto;
+}
+
+input {
+	width: auto;
+	padding: 40px auto;
+	height: 10vh;
+}
