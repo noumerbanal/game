@@ -2,7 +2,7 @@ $(document).ready(() => {
     let score = 0;
     let level = 1;
 
-    loadLevel();
+    levelReload();
 
     $('#check').click(()=>{
         let ans1 = Number($('#input1').val());
@@ -33,7 +33,7 @@ const shuffleNum = (a) => {
     return a;
 };
 
-const loadLevel = () => {
+const levelReload = () => {
     $('li').css('color','white');
     let addends = [1,2,3,4];
     let randNums = shuffleNum(addends);
