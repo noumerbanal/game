@@ -2,68 +2,83 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE-Edge">
-	<title>Sums</title>
+	<title>Sums: The Arithmetic Game</title>
 	<script type="text/javascript" src="./assets/js/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="./assets/css/animate.css">
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato|Montserrat" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
-	<h1>Sums</h1>
-	<table>
-	  <tr>
-	    <th id="sum1"></th>
-	    <th id="sum2"></th>
-	  </tr>
-	  <tr>
-	    <td><input id="input1" type="number"></td>
-	    <td><input id="input2" type="number"></td>
-	    <th id="sum3"></th>
-	  </tr>
-	  <tr>
-	    <td><input id="input3" type="number"></td>
-	    <td><input id="input4" type="number"></td>
-	    <th id="sum4"></th>
-	  </tr>
-	</table>
-	<button id='check'>Submit</button>
+	<main class="container">
+		<div class="row">
+			<div class="col-12 animated bounceInDown">
+				<nav>
+						<h1><i class="fas fa-plus"></i> SUMS <span>The Arithmetic Game</span></h1>
+				</nav>	
+			</div>
+			<div class="col-4">
+					<div class="direction animated bounceInLeft delay-1s">
+						<h2>How to play</h2>
+						<ul class="note">
+							<li>Fill up the boxes with the right addends that will justify the sums around it. </li>
+							<li>You can only input numbers incrementally starting from 1.</li>
+						</ul>
+						<h2>Tips</h2>
+						<ul>
+							<li>Always check if every addends are equal to its corresponding sum</li>
+							<li>Enjoy and focus while playing the game.</li>
+						</ul>
+					</div>
+			</div>
+			<div class="col-8">
+				<div class="status animated bounceInRight delay-1s">
+					<h2>Level <span id="level">1</span></h2>
+					<h2>Score <span id="score">0</span></h2>
+					<button id='check'><i class="fas fa-check"></i> Submit Answer</button>
+				</div>
+			</div>
+			<div class="col-8">
+				<div class="canvas animated bounceInRight delay-1s">
+					<table>
+							<tr>
+								<td><input id="input1" type="number" min="0"></td>
+								<td> + </td>
+								<!-- <td><input id="test" type="number" min="0"></td>
+								<td> + </td> -->
+								<td><input id="input2" type="number" min="0"></td>
+								<th id="sum3"></th>
+							</tr>
+							<tr>
+									<td> + </td>
+									<td></td>
+									<td> + </td>
+							</tr>
+							<tr>
+								<td><input id="input3" type="number" min="0"></td>
+								<td> + </td>
+								<!-- <td><input id="test" type="number" min="0"></td>
+								<td> + </td> -->
+								<td><input id="input4" type="number" min="0"></td>
+								<th id="sum4"></th>
+							</tr>
+							<tr>
+								<th id="sum1"></th>
+								<th></th>
+								<th id="sum2"></th>
+							</tr>
+					</table>
+				</div>
+			</div>
 
+		</div>
+		
+	</main>
 
-	<script type="text/javascript">
-		$(document).ready(() => {
+	<footer class="animated fadeInUp delay-1s"><small>Sums: The Arithmetic Game &copy; 2018</small></footer>
 
-			let addends = [1,2,3,4];
-			let randNums = shuffle(addends);
-
-			$('#sum1').html(randNums[0] + randNums[2]);
-			$('#sum2').html(randNums[1]+ randNums[3]);
-			$('#sum3').html(randNums[0] + randNums[1]);
-			$('#sum4').html(randNums[2] + randNums[3]);
-
-			
-			$('#check').click(()=>{
-				let ans1 = Number($('#input1').val());
-				let ans2 = Number($('#input2').val());
-				let ans3 = Number($('#input3').val());
-				let ans4 = Number($('#input4').val());
-
-				if( ans1 + ans3 == Number($('#sum1').html()) &&
-					ans2 + ans4 == Number($('#sum2').html()) &&
-					ans1 + ans2 == Number($('#sum3').html()) &&
-					ans3 + ans4 == Number($('#sum4').html())){
-					alert('Your awesome')
-				} else {
-					alert('you suck');
-				}				
-			});
-		});
-
-		const shuffle = (a) => {
-		    for(let b, c, d = a.length; d; b = parseInt(Math.random() * d), c = a[--d], a[d] = a[b], a[b] = c);
-		    return a;
-		};
-
-
-	</script>
+	<script type="text/javascript" src="./assets/js/script.js"></script>
 </body>
-</html>
+</html
